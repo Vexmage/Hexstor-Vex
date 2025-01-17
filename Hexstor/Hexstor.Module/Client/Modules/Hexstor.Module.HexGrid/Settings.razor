@@ -1,0 +1,28 @@
+@namespace Hexstor.Module.HexGrid
+@inherits ModuleBase
+
+@* Required *@
+<MudThemeProvider IsDarkMode=true />
+<MudPopoverProvider />
+
+@* Needed for dialogs
+<MudDialogProvider />*@
+
+@* Needed for snackbars
+<MudSnackbarProvider />*@
+@if(!_loading){
+    <div class="container">
+        <div class="row mb-1 align-items-center">
+            <Label Class="col-sm-3" For="rows" HelpText="Enter a value" >Rows: </Label>
+            <div class="col-sm-9">
+                <input id="rows" type="text" class="form-control" @bind="@_settingsVM.Rows" />
+            </div>
+        </div>
+        <div class="row mb-1 align-items-center">
+            <Label Class="col-sm-3" For="cols" HelpText="Enter an EVEN value">Columns (even) : </Label>
+            <div class="col-sm-9">
+                <input id="cols" type="text" class="form-control" @bind="@_settingsVM.Columns" />
+            </div>
+        </div>
+    </div>
+}

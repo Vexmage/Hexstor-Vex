@@ -1,0 +1,54 @@
+:root {
+    --hex-width: 100px; /* Width of the hexagon */
+    --hex-height: calc(var(--hex-width) * 0.866); /* 0.866 is approximately sqrt(3)/2 */
+    --hex-margin-top: calc(var(--hex-height) / 2);
+    --hex-column: calc(var(--hex-height) * 0.866);
+    --hex-row: var(--hex-column);
+    --hexgrid-columns: 6;  /* must be even to make the staggering work */
+}
+
+.hex-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--hexgrid-columns), var(--hex-column));
+    gap: 0.1em;
+}
+
+.hex {
+    position: relative;
+    width: var(--hex-width);
+    height: var(--hex-height);
+    background-color: #6a1b9a;
+    color: white;
+    line-height: var(--hex-height);
+    text-align: center;
+    clip-path: polygon( 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50% );
+    display: inline-block;
+}
+    .hex:nth-child(even) {
+        margin-top: var(--hex-margin-top);
+    }
+
+
+.row-1 {
+    transform: translateY(-50%);
+}
+
+.row-2 {
+    transform: translateY(-100%);
+}
+
+.row-3 {
+    transform: translateY(-150%);
+}
+
+.row-4 {
+    transform: translateY(-200%);
+}
+
+.row-5 {
+    transform: translateY(-250%);
+}
+
+.row-6 {
+    transform: translateY(-300%);
+}
